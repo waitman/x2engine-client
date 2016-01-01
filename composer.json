@@ -1,9 +1,9 @@
 {
-    "name": "waitman/x2engineClient",
+    "name": "waitman/x2engine-client",
     "type": "library",
     "description": "x2engine Client",
     "keywords": ["X2CRM","x2engine"],
-    "homepage": "https://github.com/waitman/x2engineClient",
+    "homepage": "https://github.com/waitman/x2engine-client",
     "license": "BSD",
     "authors": [
         {
