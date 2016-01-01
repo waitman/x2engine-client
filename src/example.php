@@ -112,7 +112,7 @@ $a = array(
     'zipcode' => '90210',
     'country' => 'US',
             
-    'website' => 'http://www.aduent.com/',
+    'website' => 'http://www.arduent.com/',
     'phone' => '+1 650 999 0406',
             
     'annualRevenue' => 1000000.00,
