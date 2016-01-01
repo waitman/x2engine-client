@@ -1,30 +1,7 @@
+<?php
 
-x2engineClient / PHP
-
-This program provides a PHP class client to connect to x2engine 
-
-LICENSE
-
-Copyright (c) 2016 Waitman Gobble <ns@waitman.net>.
-All rights reserved.
-
-Redistribution and use in source and binary forms are permitted
-provided that the above copyright notice and this paragraph are
-duplicated in all such forms and that any documentation,
-advertising materials, and other materials related to such
-distribution and use acknowledge that the software was developed
-by Waitman Gobble. The name of Waitman Gobble may not be used to 
-endorse or promote products derived from this software without 
-specific prior written permission. THIS SOFTWARE IS PROVIDED ``AS IS'' 
-AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT 
-LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
-FOR A PARTICULAR PURPOSE.
-
-
-Examples
-
-```
 require_once('x2engineClient.php');
+
 $url = 'https://www.arduent.com/index.php/api2';
 
 /* 
@@ -171,4 +148,6 @@ echo $test->createAccount($a);
 echo "\nUpdate Account\n";
 echo $test->updateAccount(2,$a);
 echo "\n";
-```
+
+exit();
+

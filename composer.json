@@ -1,0 +1,24 @@
+{
+    "name": "waitman/x2engineClient",
+    "type": "library",
+    "description": "x2engine Client",
+    "keywords": ["X2CRM","x2engine"],
+    "homepage": "https://github.com/waitman/x2engineClient",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Waitman Gobble",
+            "email": "ns@waitman.net",
+            "homepage": "https://hub.zilla.tech/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "x2engineClient": "src"
+        }
+    }
+}
