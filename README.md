@@ -21,6 +21,21 @@ LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
 FOR A PARTICULAR PURPOSE.
 
 
+INSTALLING IT WITH composer
+
+edit composer.json in your project directory:
+```
+{
+        "minimum-stability": "dev",
+        "require": {
+                "waitman/x2engine-client": "dev-master"
+        }
+}
+```
+
+# composer update
+
+
 Examples
 
 ```
