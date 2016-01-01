@@ -20,5 +20,7 @@
         "psr-0": {
             "x2engineClient": "src"
         }
-    }
+    },
+    "minimum-stability": "dev"
+    
 }
