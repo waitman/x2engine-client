@@ -275,11 +275,11 @@ echo "\n";
 
 $a = array(
 
-	'assignedTo' => 'administration',
+	'assignedTo' => 'administration',				/* optional */
     'backgroundInfo' => 'totally hot chick',
-    'visibility' => 1, 								/* public, true or false */
+    'visibility' => 1, 								/* 1=public */
     'priority' => 3, 								/* 1=Low,2=Medium,3=High */
-    'rating' => '',
+    'rating' => 3,									/* 0 to 5 stars */
     
     'firstName' => 'Jessica',
     'lastName' => 'Sampson',
@@ -346,7 +346,7 @@ echo "\n";
 
 $a = array(
 
-	'assignedTo' => 'administration',
+	'assignedTo' => 'administration',							/* optional */
 	'visibility' => 1,											/* 1 public */
 
     'name' => 'Test Account',
