@@ -39,7 +39,12 @@ edit composer.json in your project directory:
 Examples
 
 ```
-require_once('x2engineClient.php');
+
+<?php
+require_once('vendor/autoload.php'); //composer
+
+use x2engineClient\x2engineClient;
+
 $url = 'https://www.arduent.com/index.php/api2';
 
 /* 
