@@ -21,7 +21,7 @@ LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
 FOR A PARTICULAR PURPOSE.
 
 
-INSTALLING IT WITH composer
+# INSTALLING IT WITH composer
 
 edit composer.json in your project directory:
 ```
@@ -33,7 +33,9 @@ edit composer.json in your project directory:
 }
 ```
 
+```
 # composer update
+```
 
 
 Examples
