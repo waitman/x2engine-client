@@ -198,18 +198,62 @@ class x2engineClient {
 			}
 		}
 
-		public function searchContactEmail($email=null)
+		public function lastContact($limit=1)
+		{
+			$this->page = '/Contacts?_order=-id&_limit='.$limit;
+			$this->qp('GET');
+			return $this->response;
+		}
+
+		/* set partial = 1 to get records with partial matches */
+		public function searchContactEmail($email=null,$partial=0)
 		{
 			if ($email!=null)
 			{
-				$this->page = '/Contacts/by:email='.$email.'.json';
+				$this->page = '/Contacts?_order=-id&_partial='.$partial.'&email='.$email;
 				$this->qp('GET');
 				return $this->response;
 			} else {
 				return 'Error - no Email specified.';
 			}
 		}
+
+		public function searchContactFirst($first_name=null,$partial=0)
+		{
+			if ($first_name!=null)
+			{
+				$this->page = '/Contacts?_order=-id&_partial='.$partial.'&firstName='.$first_name;
+				$this->qp('GET');
+				return $this->response;
+			} else {
+				return 'Error - no First Name specified.';
+			}
+		}
+
+		public function searchContactLast($last_name=null,$partial=0)
+		{
+			if ($first_name!=null)
+			{
+				$this->page = '/Contacts?_order=-id&_partial='.$partial.'&lastName='.$first_name;
+				$this->qp('GET');
+				return $this->response;
+			} else {
+				return 'Error - no Last Name specified.';
+			}
+		}
 		
+		public function searchContactName($first_name=null,$last_name=null,$partial=0)
+		{
+			if (($first_name!=null)&&($last_name!=null))
+			{
+				$this->page = '/Contacts?_order=-id&_partial='.$partial.'&firstName='.$first_name.'&lastName='.$last_name;
+				$this->qp('GET');
+				return $this->response;
+			} else {
+				return 'Error - no First and Last Name specified.';
+			}
+		}
+				
 		public function createAccount($a)
 		{
 			if (is_array($a))
@@ -238,7 +282,6 @@ class x2engineClient {
 				return 'Error - No Account Array sent.';
 			}
 		}
-
 		
 		public function lastAction($limit=1)
 		{
@@ -247,5 +290,40 @@ class x2engineClient {
 			return $this->response;
 		}
 
-}
+		public function createAction($a)
+		{
+			if (is_array($a))
+			{
+				$this->page = '/Actions';
+				$this->qp('POST',$a);
+				return $this->response;
+			} else {
+				return 'Error - No Action Array sent.';
+			}
+		}
+		
+		public function updateAction($id=0,$a)
+		{
+			if (is_array($a))
+			{
+				if ($id>0)
+				{
+					$this->page = '/Actions/'.$id.'.json';
+					$this->qp('PUT',$a);
+					return $this->response;
+				} else {
+					return 'Error - No Action Id sent.';
+				}
+			} else {
+				return 'Error - No Action Array sent.';
+			}
+		}
+			
+		public function getModels()
+		{
+			$this->page = '/models';
+			$this->qp('GET');
+			return $this->response;
+		}
 
+}

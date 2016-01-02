@@ -1,6 +1,7 @@
 <?php
 
-require_once('x2engineClient.php');
+require_once('x2engineClient/x2engineClient.php');
+use x2engineClient\x2engineClient;
 
 $url = 'https://www.arduent.com/index.php/api2';
 
@@ -15,6 +16,91 @@ $test = new x2engineClient($access[0],$access[1],$url);
 echo $test."\n";
 print_r($test->toArray());
 echo "\n";
+
+/*
+$test->getModels();
+print_r($test->toArray());
+exit();
+*/
+
+/*
+echo "\nLast Contact\n";
+$test->lastContact(0); 								 Get All Contacts (limit=0) 
+print_r($test->toArray());
+echo "\n";
+*/
+
+echo "\nSearch For Contact by Email\n";
+$test->searchContactEmail('gobble.wa@gmail.com',1);
+$res = $test->toArray();
+if (count($res)>0)
+{
+	echo 'Found Contact Record(s)'."\n";
+	if (count($res)>1)
+	{
+		echo "\nError: Multiple Records Found - Cannot Update\n";
+		foreach ($res as $k=>$v)
+		{
+			echo "id: ".$v['id']."\n";
+		}
+	} else {
+		$ci = array_pop($res);
+		$id = $ci['id'];
+		echo "id: ".$id."\n";
+		//$test->updateContact($id,$a);
+	}
+	
+} else {
+	echo 'Contact Record Not Found'."\n";
+	//$test->createContact($a);
+}
+exit();
+echo "\n";
+print_r($test->toArray());
+echo "\n";
+
+echo "\nSearch For Contact by First Name\n";
+$test->searchContactFirst('jess',1);
+echo "\n";
+print_r($test->toArray());
+echo "\n";
+
+exit();
+
+echo "\nLast Action\n";
+$test->lastAction(10); 								/* Get Last 10 Actions */
+print_r($test->toArray());
+echo "\n";
+
+echo "\Create Action\n";
+
+$a = array(
+
+	'assignedTo' => 'administration',
+	'visibility' => 1,										/* 1 public */
+	
+	'color' => 'Pink',										/* 'Blue','Light Blue','Turquoise','Light Green','Yellow','Orange','Pink','Red','Purple','Gray' */
+	
+	'subject' => 'The Test Subject',
+	'actionDescription' => 'This is the action description',
+
+	'calendarId' => '',
+	'associationId' =>	19,
+	'associationType' => 'contacts',
+	'associationName' => 'Jessica Sampson',
+	'dueDate' => strtotime('2016-01-03 11:11:13'),
+	'allDay' => '',
+	
+	'complete' => 'No',										/* 'Yes' or 'No' */
+	'completeDate' => '',
+	'completedBy' => 'administration',
+	
+	'reminder' => 1											/* remind user = 1 */
+);
+
+echo $test->createAction($a);
+
+
 
 echo "Number Of Contacts In System: ". $test->contactsCount();
 echo "\n";
@@ -79,15 +165,6 @@ echo "\nCreate Contact\n";
 echo $test->createContact($a);
 echo "\nUpdate Contact\n";
 echo $test->updateContact(2,$a);
-echo "\nSearch For Contact by Email\n";
-echo $test->searchContactEmail('gobble.wa@gmail.com'); /* returning unsupported media type 415, todo */
-echo "\n";
-print_r($test->toArray());
-echo "\n";
-
-echo "\nLast Action\n";
-echo $test->lastAction(10); 						/* Get Last 10 Actions */
-echo "\n";
 
 echo "\nList Account 1\n";
 echo $test->accountRecord(1);
